@@ -1,6 +1,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Sigmar+One|Changa+One');
+/* for alerts */
+.alert-alert {
+  @extend .alert-warning;
+}
+
+.alert-notice {
+  @extend .alert-info;
+}
 /* universal */
 
 body {
@@ -62,23 +70,29 @@ p {
   padding-top: 9px;
   font-weight: bold;
   font-family: 'Sigmar One', cursive;
+  outline: 0;
 }
 
 #logo:hover {
   color: mediumorchid;
   text-decoration: none;
+  outline: 0;
 }
+
 #menu{
   color:   #8c8c8c;
   font-family: 'Changa One', cursive;
+  outline: 0;
 }
 #menu:hover {
   color: rebeccapurple;
   text-decoration: underline;
+  outline: 0;
 }
 .navbar-default{
   border: none;
   height:7%;
   background: white;
+  outline: 0;
 }
 /* Home page */

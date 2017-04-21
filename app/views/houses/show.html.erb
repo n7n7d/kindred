@@ -1,0 +1,71 @@
+<% if seller_signed_in? %>
+
+    <div class="col-sm-9"style="background: white">
+      <br>
+
+
+<p>
+      <div style="font-size: 30px;font-weight: 400;"class="text-center"><span style="font-size: 10px;color: red;">[Title] </span> <%= @house.title %></div>
+</p>
+
+      <p>
+          <div style="font-size: 12px;font-weight: 400;"class="text-left"><span style="font-size: 10px;color: red;">[Description] </span> <%= @house.description %></div>
+      </p>
+
+      <p>
+      <div style="font-size: 12px;font-weight: 400;"class="text-left"><span style="font-size: 10px;color: red;">[Location] </span> <%= @house.location %></div>
+      </p>
+
+
+      <p>
+      <div style="font-size: 12px;font-weight: 400;"class="text-left"><span style="font-size: 10px;color: red;">[Price] </span><i class="fa fa-inr"></i> <%= @house.price %></div>
+      </p>
+
+      <p>
+      <div style="font-size: 12px;font-weight: 300;"class="text-left"><span style="font-size: 10px;color: red;">[House Structure] </span> <%= @house.house_structure %></div>
+      </p>
+
+
+      <p>
+      <div style="font-size: 12px;font-weight: 400;"class="text-left"><span style="font-size: 10px;color: red;">[Address] </span> <%= @house.address %></div>
+      </p>
+
+
+      <p>
+      <div style="font-size: 12px;font-weight: 400;"class="text-left"><span style="font-size: 10px;color: red;">[Listing Display] </span> <%= @house.listing_display %></div>
+      </p>
+
+
+      <p>
+      <div style="font-size: 12px;font-weight: 400;"class="text-left"><span style="font-size: 10px;color: red;">[Status] </span> <%= @house.status %></div>
+      </p>
+
+
+      <p>
+      <div style="font-size: 12px;font-weight: 400;"class="text-left"><span style="font-size: 10px;color: red;">[Seller Name] </span> <%= @house.seller.name %></div>
+      </p>
+
+
+<hr>
+
+      <% unless @photos.empty? %>
+          <span style="font-size: 12px;font-weight: 400;color: red;"class="text-left">Click On Image To Delete It (Add New Image By Clicking On Edit House)</span>
+          <div>
+            <% @photos.each do |pic| %>
+                <%= link_to pic ,:data => { :confirm => "Are you sure you want to delete?" }, :method => :delete,style:'text-decoration:none;outline:none;' do %>
+                    <%= image_tag pic.image.url,class:'img-thumbnail',style: 'width:100px;height:100px;border-radius: 8px;' %>
+                <%end%>
+            <% end %>
+          </div>
+
+      <% end %>
+<hr>
+      <div class="btn-group">
+        <%= link_to 'Edit House', edit_house_path(@house),class:'btn btn-info'%>
+        <%= link_to 'Back', houses_path ,class:'btn btn-info'%>
+      </div>
+      <hr>
+
+    </div>
+
+<%end%>

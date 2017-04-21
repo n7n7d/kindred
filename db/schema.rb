@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170417170858) do
+ActiveRecord::Schema.define(version: 20170418184403) do
 
   create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
@@ -56,6 +56,33 @@ ActiveRecord::Schema.define(version: 20170417170858) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
   end
 
+  create_table "houses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.text     "description",     limit: 65535
+    t.string   "location"
+    t.float    "price",           limit: 24
+    t.string   "house_structure"
+    t.text     "address",         limit: 65535
+    t.boolean  "listing_display"
+    t.string   "status"
+    t.integer  "seller_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["seller_id"], name: "index_houses_on_seller_id", using: :btree
+  end
+
+  create_table "photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "image"
+    t.integer  "house_id"
+    t.index ["house_id"], name: "index_photos_on_house_id", using: :btree
+  end
+
   create_table "sellers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                                default: "", null: false
     t.string   "encrypted_password",                   default: "", null: false
@@ -86,4 +113,6 @@ ActiveRecord::Schema.define(version: 20170417170858) do
     t.index ["unlock_token"], name: "index_sellers_on_unlock_token", unique: true, using: :btree
   end
 
+  add_foreign_key "houses", "sellers"
+  add_foreign_key "photos", "houses"
 end

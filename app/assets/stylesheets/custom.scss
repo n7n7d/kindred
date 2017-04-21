@@ -67,7 +67,7 @@ p {
   color: purple;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
+  padding-top: 10px;
   font-weight: bold;
   font-family: 'Sigmar One', cursive;
   outline: 0;
@@ -79,20 +79,74 @@ p {
   outline: 0;
 }
 
-#menu{
-  color:   #8c8c8c;
-  font-family: 'Changa One', cursive;
-  outline: 0;
-}
 #menu:hover {
   color: rebeccapurple;
   text-decoration: underline;
   outline: 0;
 }
-.navbar-default{
-  border: none;
-  height:7%;
-  background: white;
+#main_nav{
   outline: 0;
+  background: white;
+  }
+#menu{
+  font-size: 1em;
 }
 /* Home page */
+
+/* make sidebar nav vertical */
+@media (min-width: 768px) {
+  .sidebar-nav .navbar-default {
+    border: none;
+  }
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding:5px 5px 5px 5px;
+    margin: 2px 2px 2px 2px;
+    font-weight: 400;
+    font-size: 0.9em;
+    color:black;
+  }
+  .sidebar-nav .navbar-nav li a:hover{
+    border-left: 5px solid purple;
+    border-radius: 2px;
+    background-color:   #d1d1e0;
+  }
+}
+#list_menu{
+  display: inline;
+}
+#list_menu a{
+  font-weight: 400;
+  font-size: 0.9em;
+  color:cornflowerblue;
+}
+
+#image_house {
+  position: relative;
+}
+#image {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#text {
+  z-index: 100;
+  position: absolute;
+  color: white;
+  font-size: 10px;
+  font-weight: 200;
+  text-align: center;
+}
+
+

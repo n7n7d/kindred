@@ -1,0 +1,36 @@
+<br>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="table-responsive" style="font-size: 12px;">
+    <table class="table table-hover">
+      <thead>
+      <tr class="info">
+        <th>Title</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Price</th>
+        <th>Structure</th>
+        <th>Address</th>
+        <th>Display</th>
+        <th>Status</th>
+        <th>Seller</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+      <td><%= house.title %></td>
+      <td><%= truncate(house.description , length: 50, omission: '.....')%></td>
+      <td><%= house.location %></td>
+      <td><%= house.price %></td>
+      <td><%= house.house_structure %></td>
+      <td><%= truncate(house.address , length: 50, omission: '.....') %></td>
+      <td><%= house.listing_display %></td>
+      <td><%= house.status %></td>
+      <td><%= house.seller.name %></td>
+      <td><%= link_to 'Show', house %></td>
+      <td><%= link_to 'Edit', edit_house_path(house) %></td>
+      <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </table>
+  </div>
+    </div>
+</div>
+

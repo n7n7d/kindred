@@ -1,0 +1,60 @@
+<div class="col-sm-3" >
+      <div class="sidebar-nav">
+        <div class="navbar navbar-default" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <span class="visible-xs navbar-brand">Sidebar menu</span>
+          </div>
+          <div class="navbar-collapse collapse sidebar-navbar-collapse">
+            <ul class="nav navbar-nav">
+              <% if customer_signed_in? %>
+
+                  <li><%= link_to customer_path(current_customer.id)  do %>
+                        <%= image_tag("user.png", alt: "User image",height: "25",width: "25") %>
+                        <%= current_customer.name %>
+                    <%end%>
+                  </li>
+
+                  <li><%= link_to edit_customer_registration_path  do %>
+                        <%= image_tag("user_edit.png", alt: "User image",height: "25",width: "25") %>
+                        Update Profile
+                    <%end%>
+                  </li>
+
+                  <li><%= link_to edit_customer_registration_path  do %>
+                        <%= image_tag("user.png", alt: "User image",height: "25",width: "25") %>
+                        <%= current_customer.name %>
+                    <%end%>
+                  </li>
+                  <%end%>
+              <br>
+              <% if seller_signed_in? %>
+                  <p style="color:grey;font-size: 0.8em;font-weight: 700;">SELLER LINKS</p>
+                  <li><%= link_to seller_path(current_seller.id) do %>
+                        <%= image_tag("seller_panel.png", alt: "User image",height: "25",width: "25") %>
+                        Seller Panel <span class="badge"><%= current_seller.houses.count%></span>
+                    <%end%>
+                  </li>
+                  <li><%= link_to edit_seller_registration_path do %>
+                        <%= image_tag("user_edit.png", alt: "User image",height: "25",width: "25") %>
+                        Edit Seller Profile
+                    <%end%>
+                  </li>
+                  <%end%>
+            </ul>
+            <p style="color:grey;font-size: 0.8em;font-weight: 700;">EXPLORE</p>
+            <ul style="list-style: none;float: none;padding:0;">
+            <li id="list_menu"><a href="#">About</a></li>.
+              <li id="list_menu"><a href="#">Help</a></li>.
+              <li id="list_menu"><a href="#">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+</div>
+

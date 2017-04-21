@@ -1,0 +1,29 @@
+<%= form_for [@house, @photo], :html => { :class => 'form-horizontal' } do |f| %>
+
+
+    <%= image_tag @photo.image.url, :id => 'cropbox' %>
+
+    <% %w[x y w h].each do |attribute| %>
+    <% end %>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary  btn-mini' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  house_path(@house), :class => 'btn btn-mini' %>
+      <%= link_to 'Default', '', :class => 'btn btn-mini btn-success' , :id => 'make_default'%>
+
+    </div>
+<% end %>
+
+<script type="text/javascript" charset="utf-8">
+    $(function () {
+        $('#make_default').click(function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: '<%= make_default_house_photos_path %>',
+                type: 'POST',
+                data: {id : <%= @photo.id %>, house_id : <%= @house.id %>}
+            });
+        });
+    });
+</script>

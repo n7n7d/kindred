@@ -17,4 +17,10 @@ class SellersController < ApplicationController
 
   def index
   end
+  protected
+
+  def seller_params
+    params.require(:seller).permit(:name, :address, :phone_number, :company,:password, :password_confirmation)
+  end
+
 end

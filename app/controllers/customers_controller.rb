@@ -13,6 +13,8 @@ class CustomersController < ApplicationController
       flash[:danger] = "You don't have access to that !"
       redirect_to root_path
     end
+  end
+  def update
 
   end
 end

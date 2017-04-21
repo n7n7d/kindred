@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session
   before_action :configure_permitted_parameters, if: :devise_controller?
 
 
@@ -22,12 +22,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def after_sign_in_path_for(seller)
-   seller_path(current_seller.id)
-  end
 
-  def after_sign_in_path_for(customer)
-    customer_path(current_customer.id)
-  end
+
+
+
 
 end
